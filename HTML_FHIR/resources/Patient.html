@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_缺Patiant.js"></script>
+    <script src="/JS/Patiant.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增患者</h2>
+    <br>
+
+    <h3>患者資料</h3>
+    <form action="#">
+        <label>年齡</label>
+        <input type="number" id="age" required>
+        <br>
+
+        <label>所屬國籍：</label>
+        <input type="text" id="nationality" value="TW" required>
+        <br>
+
+        <label>唯一識別碼種類：</label>
+        <select id="idType">
+            <option value="id">身分證</option>
+            <option value="rsid">居留證號</option>
+            <option value="psid">護照號碼</option>
+            <option value="mdid">員工編號</option>
+        </select>
+
+        <br>
+
+        <label>唯一識別碼：</label>
+        <input type="text" id="identifier" required>
+        <br>
+
+        <label>姓氏：</label>
+        <input type="text" id="familyName" required>
+        <br>
+
+        <label>名字：</label>
+        <input type="text" id="givenName" required>
+        <br>
+
+        <label>手機號碼：</label>
+        <input type="text" id="telecom" required>
+        <br>
+
+        <label>性別：</label>
+        <select id="gender">
+            <option value="male">男</option>
+            <option value="female">女</option>
+        </select>
+        <br>
+
+        <label>生日：</label>
+        <input type="date" id="birthday" required>
+        <br>
+
+        <label>郵遞區號：</label>
+        <input type="text" id="postalCode" required>
+        <br>
+
+        <label>地址（國家）：</label>
+        <input type="text" id="addressCountry" required>
+        <br>
+
+        <label>地址（城市）：</label>
+        <input type="text" id="addressCity" required>
+        <br>
+
+        <label>地址（區域）</label>
+        <input type="text" id="addressDistrict" required>
+        <br>
+
+        <label>地址（路/街）</label>
+        <input type="text" id="addressLine" required>
+        <br>
+
+        <label>婚姻狀況：</label>
+        <select id="maritalStatus">
+            <option value="D">離婚</option>
+            <option value="L">合法分居</option>
+            <option value="M">已婚</option>
+            <option value="T">同居</option>
+            <option value="U" selected>未婚</option>
+            <option value="S">從未結婚</option>
+            <option value="W">寡</option>
+        </select>
+        <br>
+
+        <h3>聯絡人資料</h3>
+
+        <label>中文姓名：</label>
+        <input type="text" id="contackName" required>
+        <br>
+
+        <label>英文姓：</label>
+        <input type="text" id="contackFalmilyName" required>
+        <br>
+
+        <label>英文名：</label>
+        <input type="text" id="contackGivenName" required>
+        <br>
+
+        <label>聯絡電話：</label>
+        <input type="text" id="contackTele" required>
+        <br>
+
+        <label>慣用語言</label>
+        <select id="language">
+            <option value="en">英文</option>
+            <option value="ja">日文</option>
+            <option value="ko">韓文</option>
+            <option value="zh" selected>中文</option>
+        </select>
+        <br>
+
+       
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+    
+</body>
+
+</html>

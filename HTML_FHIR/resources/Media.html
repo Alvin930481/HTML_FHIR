@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_Media.js"></script>
+    <script src="/JS/Media.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增多媒體</h2>
+    <br>
+
+    <form action="#">
+        <label>記錄人：</label>
+        <input type="text" id="subject" value="Practitioner/13385" required>
+        <br>
+
+        <label>多媒體資料：</label>
+        <input type="file" id="content" required>
+        <br>
+  
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+  
+</body>
+
+</html>

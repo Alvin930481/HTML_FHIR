@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_DocumentReference.js"></script>
+    <script src="/JS/DocumentReference.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增文件參照</h2>
+    <br>
+
+    <form action="#">
+        <label>文件識別碼：</label>
+        <input type="text" id="masterIdentifier" required>
+        <br>
+
+        <label>文件狀態：</label>
+        <select id="status">
+            <option value="current">current</option>
+            <option value="superseded">superseded</option>
+            <option value="entered-in-error">entered-in-error</option>
+        </select>
+        <br>
+
+        <a href="http://hl7.org/fhir/R4/valueset-c80-doc-typecodes.html" target="_blank">文件類型代碼參考</a>
+        <label>文件類型代碼：</label>
+        <input type="text" id="typeCode" value="74155-3" required>
+        <br>
+
+        <label>文件類型：</label>
+        <input type="text" id="type" value="ADHD action plan" required>
+        <br>
+
+        <a href="http://hl7.org/fhir/R4/valueset-document-classcodes.html" target="_blank">文件類別代碼參考</a>
+        <label>文件類別代碼：</label>
+        <input type="text" id="categoryCode" value="11486-8"  required>
+        <br>
+
+        <label>文件類別：</label>
+        <input type="text" id="category" value="Chemotherapy records" required>
+        <br>
+
+        <label>關聯病人：</label>
+        <input type="text" id="subject" value="Practitioner/13385" required>
+        <br>
+
+        <label>創建時間：</label>
+        <input type="datetime-local" id="date" required>
+        <br>
+
+        <label>創建者：</label>
+        <input type="text" id="author" value="Practitioner/13385" required>
+        <br>
+
+        <label>文件內容：</label>
+        <input type="file" id="content" required>
+        <br>
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+   
+</body>
+
+</html>

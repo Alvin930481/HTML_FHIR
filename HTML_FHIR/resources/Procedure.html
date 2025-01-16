@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0811_Procedure.js"></script>
+    <script src="/JS/Procedure.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增處置或手術</h2>
+    <br>
+
+    <form action="#">
+        <label>處置狀態</label>
+        <select id="status">
+            <option value="preparation">preparation</option>
+            <option value="in-progress">in-progress</option>
+            <option value="not-done">not-done</option>
+            <option value="on-hold">on-hold</option>
+            <option value="stopped">stopped</option>
+            <option value="completed">completed</option>
+            <option value="entered-in-error">entered-in-error</option>
+            <option value="unknown">unknown</option>
+        </select>
+        <br>
+
+        <label>處置/手術識別碼類型：</label>
+        <input type="text" id="name" required>
+        <br>
+
+        <label>處置/手術識別碼集：</label>
+        <select id="codecode">
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-10-pcs-2021-tw.html">icd10-pcs-2021</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-10-pcs-2014-tw.html">icd10-pcs-2014</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-procedure-tw.html">medical-service-payment</option>
+            <option value="http://hl7.org/fhir/R4/valueset-procedure-code.html">sct-procedures</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-loinc-procedure-code.html">loinc-procedures</option>
+        </select>
+        <br>
+
+        <a href="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-10-pcs-2021-tw.html" id="codecodeLink">處置/手術識別碼代碼參考</a>
+        <label>處置/手術識別碼代碼：</label>
+        <input type="text" id="codec" value="0016070" required>
+        <br>
+
+        <label>處置/手術識別碼：</label>
+        <input type="text" id="code" value="開放性腦室至鼻咽繞道術，使用自體組織替代物" required>
+        <br>
+
+        <label>關聯病人：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>執行時間：</label>
+        <input type="date" id="performedDateTime" required>
+        <br>
+
+        <label>開立人：</label>
+        <input type="text" id="asserter" value="Patient/13384" required>
+        <br>
+
+        <label>執行人員：</label>
+        <input type="text" id="performer" value="Practitioner/13385" required>
+        <br>
+
+        <a href="http://hl7.org/fhir/R4/valueset-body-site.html" target="_blank">身體部位代碼參考</a><br>
+        <label>身體部位代碼：</label>
+        <input type="text" id="bodySiteCode" value="149003" required>
+        <br>
+
+        <label>身體部位：</label>
+        <input type="text" id="bodySite" value="Central pair of microtubules, cilium or flagellum, not bacterial" required>
+        <br>
+
+      
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+    
+</body>
+
+</html>

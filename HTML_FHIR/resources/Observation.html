@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_Observation.js"></script>
+    <script src="/JS/Observation.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增檢驗檢查</h2>
+    <br>
+
+    <form action="#">
+        <label>狀態：</label>
+        <select id="status">
+            <option value="registered">Registered</option>
+            <option value="preliminary">Preliminary</option>
+            <option value="final">Final</option>
+            <option value="amended">Amended</option>
+        </select>
+        <br>
+
+        <a href="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-laboratory-category-tw.html">檢驗項目參考</a><br>
+        <label>檢驗項目：</label>
+        <input type="text" id="code" value="00101B" required>
+        <br>
+
+        <label>病人：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>檢查執行日：</label>
+        <input type="date" id="effectiveDateTime" required>
+        <br>
+
+        <label>檢查執行者：</label>
+        <input type="text" id="performer" value="Practitioner/13385" required>
+        <br>
+
+        <label>檢查結果：</label>
+        <input type="text" id="valueString" required>
+        <br>
+
+        <a href="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-loinc-observation-code.html">細項與結果代碼參考</a><br>
+        <label>檢查細項代碼:</label>
+        <input type="text" id="componentCode" value="1-8" required>
+        <br>
+
+        <label>檢查細項結果:</label>
+        <input type="text" id="component" value="Acyclovir [Susceptibility]" required>
+        <br>
+
+       
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+    
+</body>
+
+</html>

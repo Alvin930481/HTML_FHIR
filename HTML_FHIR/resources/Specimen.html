@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0811_Specimen.js"></script>
+    <script src="/JS/Specimen.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增檢體</h2>
+    <br>
+
+    <form action="#">
+        <label>識別碼：</label>
+        <input type="text" id="identifier" required>
+        <br>
+        <a href="http://terminology.hl7.org/5.0.0/ValueSet-v2-0487.html" target="_blank">檢體種類代碼參考</a><br>
+        <label>檢體種類代碼：</label>
+        <input type="text" id="typeCode" value="ABS" required>
+        <br>
+
+        <label>檢體種類：</label>
+        <input type="text" id="type" value="Abscess" required>
+        <br>
+
+        <label>檢體來源：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+       
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+
+</body>
+
+</html>

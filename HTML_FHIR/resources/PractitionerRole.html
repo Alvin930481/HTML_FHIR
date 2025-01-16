@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0811_PractitionerRole.js"></script>
+    <script src="/JS/PractitionerRole.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增醫事人員</h2>
+    <br>
+
+    <form action="#">
+        <label>識別碼：</label>
+        <input type="text" id="identifier" required>
+        <br>
+
+        <label>有效狀態：</label>
+        <select id="active">
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>
+        <br>
+
+        <label>關聯醫事人員：</label>
+        <input type="text" id="practitioner" value="Practitioner/13385" required>
+        <br>
+
+        <label>關聯機構：</label>
+        <input type="text" id="organization" value="Organization/13381" required>
+        <br>
+
+        <a href="http://snomed.info/sct" target="_blank">診療科別代碼參考</a><br>
+        <label>診療科別代碼：</label>
+        <input type="text" id="specialtyCode" value="419772000" required>
+        <br>
+
+        <label>診療科別：</label>
+        <input type="text" id="specialty" value="Family practice" required>
+        <br>
+
+        <label>照顧地點：</label>
+        <input type="text" id="location" value="Location/13386" required>
+        <br>
+
+        <label>聯絡電話：</label>
+        <input type="text" id="telecom" required>
+        <br>
+
+        
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+</body>
+
+</html>

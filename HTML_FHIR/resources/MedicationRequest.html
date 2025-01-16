@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_MedicationRequest.js"></script>
+    <script src="/JS/MedicationRequest.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增藥品處方</h2>
+    <br>
+
+    <form action="#">
+        <label>處方識別碼：</label>
+        <input type="text" id="identifier" value="DL" required>
+        <br>
+
+        <label>處方狀態：</label>
+        <select id="status">
+            <option value="active">active</option>
+            <option value="on-hold">on-hold</option>
+            <option value="cancelled">cancelled</option>
+            <option value="completed">completed</option>
+            <option value="entered-in-error">entered-in-error</option>
+            <option value="stopped">stopped</option>
+            <option value="draft">draft</option>
+            <option value="unknown">unknown</option>
+        </select>
+        <br>
+
+        <label>醫令狀態：</label>
+        <select id="intent">
+            <option value="proposal">proposal</option>
+            <option value="plan">plan</option>
+            <option value="order">order</option>
+            <option value="original-order">original-order</option>
+            <option value="reflex-order">reflex-order</option>
+            <option value="filler-order">filler-order</option>
+            <option value="nstance-order">nstance-order</option>
+            <option value="option">option</option>
+        </select>
+        <br>
+
+        <label>用藥型別：</label>
+        <select id="category">
+            <option value="inpatient">Inpatient</option>
+            <option value="outpatient">Outpatient</option>
+            <option value="community">Community</option>
+            <option value="discharge">Discharge</option>
+        </select>
+        <br>
+
+        <label>開立藥物：</label>
+        <input type="text" id="medicationReference" value="Medication/13506" required>
+        <br>
+
+        <label>病人：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>就醫紀錄：</label>
+        <input type="text" id="encounter" value="Encounter/13388" required>
+        <br>
+
+        <label>開立日期時間：</label>
+        <input type="date" id="authoredOn" required>
+        <br>
+
+        <label>開立人：</label>
+        <input type="text" id="requester" value="Practitioner/13385" required>
+        <br>
+
+        <label>開立原因：</label>
+        <input type="text" id="reasonReference" value="Condition/13393" required>
+        <br>
+
+        <label>備註資訊：</label>
+        <input type="text" id="authorString" value="應填入處方箋註銷註記/須被合併之處方箋註記/自費註記" required>
+        <br>
+
+        <label>用藥頻率：</label>
+        <select id="timing">
+            <option value="BID">BID</option>
+            <option value="TID">TID</option>
+            <option value="QID">QID</option>
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+            <option value="QD">QD</option>
+            <option value="QOD">QOD</option>
+            <option value="Q1H">every hour</option>
+            <option value="Q2H">every 2 hours</option>
+            <option value="Q3H">every 3 hours</option>
+            <option value="Q4H">Q4H</option>
+            <option value="Q6H">Q6H</option>
+            <option value="Q8H">every 8 hours</option>
+            <option value="BED">at bedtime</option>
+            <option value="WK">weekly</option>
+            <option value="MO">monthly</option>
+        </select>
+        <br>
+
+        <label>用藥時間：</label>
+        <input type="datetime-local" id="repeat" required>
+        <br>
+
+        <a href="http://hl7.org/fhir/R4/valueset-route-codes.html">用藥途徑代碼參考</a>
+        <label>用藥途徑代碼：</label>
+        <input type="text" id="routeCode" value="10547007" required>
+        <br>
+
+        <label>用藥途徑：</label>
+        <input type="text" id="route" value="Auricular use"  required>
+        <br>
+
+        <label>處方籤有效時間：</label>
+        <input type="date" id="validityPeriod" required>
+        <br>
+
+        <label>連續處方可調劑次數：</label>
+        <input type="number" id="numberOfRepeatsAllowed" required>
+        <br>
+
+        <label>每次給藥日數：</label>
+        <input type="number" id="expectedSupplyDuration" required>
+        <br>
+       
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+</body>
+
+</html>

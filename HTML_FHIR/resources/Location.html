@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_Location.js"></script>
+    <script src="/JS/Location.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增地點</h2>
+    <br>
+
+    <form action="#">
+       
+        <label>使用狀態：</label>
+        <select id="status">
+            <option value="active">active</option>
+            <option value="suspended">suspended</option>
+            <option value="inactive">inactive</option>
+        </select>
+        <br>
+
+        <label>地點名稱：</label>
+        <input type="text" id="name" required>
+        <br>
+
+        <label>聯絡電話</label>
+        <input type="text" id="telecom" required>
+        <br>
+
+        <label>地址（國家）：</label>
+        <input type="text" id="addressCountry" required>
+        <br>
+
+        <label>郵遞區號：</label>
+        <input type="text" id="postalCode" required>
+        <br>
+
+        <label>地址（城市）：</label>
+        <input type="text" id="addressCity" required>
+        <br>
+
+        <label>地址（區域）</label>
+        <input type="text" id="addressDistrict" required>
+        <br>
+
+        <label>地址（路/街）</label>
+        <input type="text" id="addressLine" required>
+        <br>
+
+        <label>管理機構：</label>
+        <input type="text" id="managingOrganization" required>
+        <br><br>
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+</body>
+
+</html>

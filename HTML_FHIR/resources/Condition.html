@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_Condition.js"></script>
+    <script src="/JS/Condition.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增病情、問題或診斷</h2>
+    <br>
+
+    <form action="#">
+        <label>臨床反應：</label>
+        <select  id="clinicalStatus">
+            <option value="active">Active</option>
+            <option value="recurrence">Recurrence</option>
+            <option value="relapse">Relapse</option>
+            <option value="inactive">Inactive</option>
+            <option value="remission">Remission</option>
+            <option value="resolved" selected>Resolved</option>
+        </select>
+        <br>
+
+        <label>驗證狀態：</label>
+        <select id="verificationStatus">
+            <option value="unconfirmed">Unconfirmed</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="refuted">Refuted</option>
+            <option value="entered-in-error">Entered in Error</option>
+        </select>
+        <br>
+
+        <label>類別：</label>
+        <select id="category">
+            <option value="problem-list-item">病情 Problem List Item</option>
+            <option value="encounter-diagnosis">診斷 Encounter Diagnosis</option>
+        </select>
+        <br>
+
+        <label>嚴重程度：</label>
+        <select id="severity">
+            <option value="24484000">Severe</option>
+            <option value="6736007">Moderate</option>
+            <option value="255604002">Mild</option>
+        </select>
+        <br>
+
+        <label>代碼種類：</label>
+        <select id="codeType" onchange="updateLink()">
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-10-cm-2021-tw.html">icd10-cm-2021</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-10-cm-2014-tw.html">icd10-cm-2014</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-9-cm-2001-tw.html">icd9-cm-2001</option>
+            <option value="http://hl7.org/fhir/uv/ips/STU1.1/ValueSet-absent-or-unknown-problems-uv-ips.html">absentOrUnknownProblem</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-condition-code-sct-tw.html">sct</option>
+        </select>
+        <br>
+
+        <a href="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-icd-10-cm-2021-tw.html" id="codeLink"  target="_blank" >代碼值參考</a><br>
+        <label>代碼值：</label>
+        <input type="text" id="code" value="A00" required>
+        <br>
+
+        <a href="https://hl7.org/fhir/R4/valueset-body-site.html"  target="_blank" >發生部位代碼參考</a><br>
+        <label>發生部位代碼：</label>
+        <input type="text" id="bodySiteCode" value="107008" required>
+        <br>
+        <a href="https://hl7.org/fhir/R4/valueset-body-site.html"  target="_blank" >發生部位參考</a><br>
+        <label>發生部位：</label>
+        <input type="text" id="bodySite" value="Fetal part of placenta" required>
+        <br>
+
+        <label>病人</label>
+        <input type="text" id="patient" value="Patient/13384" required>
+        <br>
+
+        <label>發生日期時間：</label>
+        <input type="date" id="date" required>
+        <br>
+
+        <label>解決日期時間：</label>
+        <input type="date" id="abatementDateTime" required>
+        <br>
+
+        <label>宣告人：</label>
+        <input type="text" id="asserter" value="Patient/13384" required>
+        <br>
+
+        <label>備註：</label>
+        <textarea id="note"></textarea>
+        <br>
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+</body>
+
+</html>

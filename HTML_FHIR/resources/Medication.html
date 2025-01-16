@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_ Medication.js"></script>
+    <script src="/JS/Medication.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增藥品</h2>
+    <br>
+
+    <form action="#">
+        <label>藥物代碼種類：</label>
+        <select id="codeType">
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/medication-fda-tw">coding:fda-medication-tw
+            </option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/CodeSystem-medication-nhi-tw.html">
+                coding:nhi-medication-tw</option>
+            <option value="http://www.nlm.nih.gov/research/umls/rxnorm">coding:rxnorm-medication-us-core</option>
+            <option value="http://www.whocc.no/atc">coding:atc-medication-code</option>
+            <option value="http://www.snomed.org/">coding:snomedct-medication-codes</option>
+        </select>
+        <br>
+
+        <label>藥物代碼：</label>
+        <input type="text" id="code" value="內衛成製字第000012號" required>
+        <br>
+
+        <label>藥物名稱：</label>
+        <input type="text" id="display" value="皮癢濕軟膏" required>
+        <br>
+
+        <a href="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-v3-orderableDrugForm.html" target="_blank">藥品劑型名稱參考</a><br>
+        <label>藥品劑型名稱代碼：</label>
+        <input type="text" id="formCode" value="APPFUL" required>
+        <br>
+
+        <label>藥品劑型名稱代碼：</label>
+        <input type="text" id="form" value="Applicatorful" required>
+        <br>
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+
+</body>
+
+</html>

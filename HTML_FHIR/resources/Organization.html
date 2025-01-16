@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/JS/organization.js"></script>
+    <script src="/FHIR_module/Organization.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增醫事機構</h2>
+    <br>
+
+    <form action="#">
+        <label>是否啟用：</label>
+        <select id="active">
+            <option value="true">是</option>
+            <option value="false">否</option>
+        </select>
+        <br><br>
+
+        <label>醫事機構名稱：</label>
+        <input type="text" id="name" required>
+        <br><br>
+
+        <label>聯絡電話：</label>
+        <input type="text" id="telecom" required>
+        <br><br>
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+
+    
+</body>
+
+</html>

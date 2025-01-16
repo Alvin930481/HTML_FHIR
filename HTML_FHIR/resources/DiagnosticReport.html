@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_DiagnosticReport.js"></script>
+    <script src="/JS/DiagnosticReport.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增診斷報告</h2>
+    <br>
+
+    <form action="#">
+        <label>狀態：</label>
+        <select id="status">
+            <option value="registered">registered</option>
+            <option value="partial">partial</option>
+            <option value="preliminary">preliminary</option>
+            <option value="final">final</option>
+        </select>
+        <br>
+
+        <a href="https://hl7.org/fhir/R4/valueset-diagnostic-service-sections.html" target="_blank">報告分類參考</a><br>
+        <label>報告分類代碼：</label>
+        <input type="text" id="categoryCode" value="OTH" required>
+        <br>
+
+        <a href="https://hl7.org/fhir/R4/valueset-diagnostic-service-sections.html" target="_blank">報告分類參考</a><br>
+        <label>報告分類：</label>
+        <input type="text" id="category" value="Other" required>
+        <br>
+
+        <label>檢驗報告代碼種類：</label>
+        <select id="codeSystem" onchange="updateLink()">
+            <option value="http://loinc.org">LOINCObservationCode</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/medical-service-payment-tw">TWLaboratoryCategory</option>
+            <option value="https://twcore.mohw.gov.tw/ig/twcore/CodeSystem/icd-10-pcs-2021-tw">TW2021ICD10PCS</option>
+        </select>
+        <br>
+
+        <a href="http://loinc.org" id="codeSystemLink" target="_blank">檢驗報告代碼參考</a><br>
+        <label>檢驗報告代碼：</label>
+        <input type="text" id="codeCode" value="1-8" required> 
+        <br>
+
+        <label>檢驗報告：</label>
+        <input type="text" id="code" value="Acyclovir [Susceptibility]" required>
+        <br>
+
+        <label>病人：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>生效日期時間：</label>
+        <input type="date" id="effectiveDateTime" required>
+        <br>
+
+        <label>出報告日期時間：</label>
+        <input type="date" id="issued" required>
+        <br>
+
+        <label>主責醫師：</label>
+        <input type="text" id="performer" value="Practitioner/13385" required>
+        <br>
+
+        <label>檢驗檢查結果：</label>
+        <input type="text" id="result" value="Observation/13504"  required>
+        <br>
+
+        <label>報告結論：</label>
+        <input type="text" id="conclusion" required>
+        <br>
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+</body>
+
+</html>

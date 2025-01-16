@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_ImagingStudy.js"></script>
+    <script src="/JS/ImagingStudy.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增影像檢查</h2>
+    <br>
+
+    <form action="#">
+        <a href="https://hl7.org/fhir/R4/valueset-identifier-type.html" target="_blank">識別碼代碼參考</a><br>
+        <label>識別碼代碼：</label>
+        <input type="text" id="identifierCode" value="DL" required>
+        <br>
+
+        <label>識別碼：</label>
+        <input type="text" id="identifier" value="Driver's license number" required>
+        <br>
+
+        <a href="https://hl7.org/fhir/R4/valueset-identifier-type.html" target="_blank">識別碼代碼參考</a><br>
+        <label>儀器類型代碼：</label>
+        <input type="text" id="modalityCode" value="BMD" required>
+        <br>
+
+        <label>儀器類型：</label>
+        <input type="text" id="modality" value="Bone Mineral Densitometry" required>
+        <br>
+
+        <label>檢查對象：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>檢查開始日期時間：</label>
+        <input type="date" id="started" required>
+        <br>
+
+        <label>處置代碼：</label>
+        <select id="procedureCode">
+            <option value="0016070">開放性腦室至鼻咽繞道術，使用自體組織替代物</option>
+            <option value="0016071">開放性腦室至乳突竇繞道術，使用自體組織替代物</option>
+            <option value="0016072">開放性腦室至心房繞道術，使用自體組織替代物</option>
+            <option value="0016073">開放性腦室至血管繞道術，使用自體組織替代物</option>
+            <option value="BH32ZZZ">雙側乳房磁振造影</option>
+            <option value="BR27ZZZ">胸椎電腦斷層掃描</option>
+            <option value="BU46ZZZ">子宮超音波</option>
+            <option value="BW40ZZZ">腹部超音波</option>
+        </select>
+        <br>
+
+        <a href="https://hl7.org/fhir/R4/valueset-procedure-reason.html" target="_blank">檢查原因參考</a><br>
+        <label>檢查原因代碼：</label>
+        <input type="text" id="reasonCode" value="122003" required>
+        <br>
+
+        <label>檢查原因代碼：</label>
+        <input type="text" id="reason" value="Choroidal hemorrhage" required>
+        <br>
+
+        <h4>系列影像</h4>
+        <br>
+
+        <label>系列影像ＵＩＤ</label>
+        <input type="text" id="seriesUID" required>
+        <br>
+
+        <a href="https://hl7.org/fhir/R4/valueset-procedure-reason.html" target="_blank">使用儀器代碼參考</a><br>
+        <label>使用儀器代碼：</label>
+        <input type="text" id="modalityCode" value="EOG" required>
+        <br>
+
+        <label>使用儀器：</label>
+        <input type="text" id="modality" value="Electrooculography" required>
+        <br>
+
+        <h4>SOP實例：</h4>
+        <br>
+
+        <label>SOP實例UID：</label>
+        <input type="text" id="instanceUID" required>
+        <br>
+
+        <label>SOP Class類型：</label>
+        <input type="text" id="sopClass" required>
+        <br>
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+   
+</body>
+
+</html>

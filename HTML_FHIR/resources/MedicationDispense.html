@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_MedicationDispense.js"></script>
+    <script src="/JS/MedicationDispense.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增藥品調劑</h2>
+    <br>
+
+    <form action="#">
+        <label>調劑識別碼：</label>
+        <input type="text" id="identifier" required>
+        <br>
+
+        <label>調劑狀態：</label>
+        <select id="status">
+            <option value="preparation">preparation</option>
+            <option value="in-progress">n-progress</option>
+            <option value="cancelled">cancelled</option>
+            <option value="on-hold">on-hold</option>
+            <option value="completed">completed</option>
+        </select>
+        <br>
+
+        <a href="http://hl7.org/fhir/R4/valueset-medicationdispense-category.html" target="_blank">調劑類型代碼參考</a>
+        <label>調劑類型代碼：</label>
+        <input type="text" id="categoryCode" value="inpatient" required>
+        <br>
+
+        <label>調劑類型：</label>
+        <input type="text" id="category" value="Inpatient" required>
+        <br>
+
+        <label>供應藥品：</label>
+        <input type="text" id="medicationCodeableConcept" value="Medication/13506" required>
+        <br>
+
+        <label>供應對象：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>就醫紀錄：</label>
+        <input type="text" id="context" value="Encounter/13388" required>
+        <br>
+
+        <label>調劑人員：</label>
+        <input type="text" id="performer" value="Practitioner/13385" required>
+        <br>
+
+        <label>關聯處方：</label>
+        <input type="text" id="authorizingPrescription" value="MedicationRequest/13397" required>
+        <br>
+
+        <a href="http://terminology.hl7.org/5.5.0/ValueSet-v3-ActPharmacySupplyType.html" target="_blank">調劑類型代碼參考</a><br>
+        <label>調劑類型代碼：</label>
+        <input type="text" id="typeCode" value="DF" required>
+        <br>
+
+        <label>調劑類型：</label>
+        <input type="text" id="type" value="Daily Fill" required>
+        <br>
+
+        <label>給藥總量：</label>
+        <input type="number" id="quantity" required>
+        <br>
+
+        <label>給藥日數：</label>
+        <input type="number" id="daysSupply" required>
+        <br>
+
+        <label>給藥日期時間：</label>
+        <input type="date" id="whenHandedOver" required>
+        <br>
+
+        <h4>給藥頻次：</h4>
+        <br>
+
+
+        <label>順序：</label>
+        <input type="number" id="sequence" required>
+        <br>
+
+        <label>劑量指示：</label>
+        <input type="text" id="text" value="SIG" required>
+        <br>
+
+
+        <label>給藥頻率：</label>
+        <input type="text" id="patientInstruction" value="三餐飯後" required>
+        <br>
+
+        <h4>重複給藥</h4>
+        <br>
+
+        <label>重複次數：</label>
+        <input type="number" id="count" required>
+        <br>
+
+        <label>持續時間：</label>
+        <input type="number" id="duration" required>
+        <br>
+
+        <label>持續時間單位：</label>
+        <select id="durationUnit">
+            <option value="s">秒</option>
+            <option value="min">分</option>
+            <option value="h">時</option>
+            <option value="d">天</option>
+            <option value="wk">週</option>
+            <option value="mo">月</option>
+            <option value="a">年</option>
+        </select>
+        <br>
+
+        <label>多久給一次</label>
+        <input type="number" id="frequency" required>
+        <br>
+
+        <label>總共給多久：</label>
+        <input type="number" id="period" required>
+        <br>
+
+        <label>總共給多久時間單位：</label>
+        <select id="periodUnit">
+            <option value="s">秒</option>
+            <option value="min">分</option>
+            <option value="h">時</option>
+            <option value="d">天</option>
+            <option value="wk">週</option>
+            <option value="mo">月</option>
+            <option value="a">年</option>
+        </select>
+        <br>
+
+        <label>每禮拜幾給藥：</label>
+        <br>
+        <label><input type="checkbox" name="days" value="mon"> 週一</label>
+        <label><input type="checkbox" name="days" value="tue"> 週二</label>
+        <label><input type="checkbox" name="days" value="wed"> 週三</label>
+        <label><input type="checkbox" name="days" value="thu"> 週四</label>
+        <label><input type="checkbox" name="days" value="fri"> 週五</label>
+        <label><input type="checkbox" name="days" value="sat"> 週六</label>
+        <label><input type="checkbox" name="days" value="sun"> 週日</label>
+        <br>
+
+        <label>每天何時給藥：</label>
+        <input type="time" id="timeOfDay" required>
+        <br>
+
+        <a href="https://twcore.mohw.gov.tw/ig/twcore/ValueSet-medication-path-sct-tw.html" target="_blank">用藥途徑代碼參考</a><br>
+        <label>用藥途徑代碼：</label>
+        <input type="text" id="routeCode" value="10547007" required>
+        <br>
+
+        <label>用藥途徑：</label>
+        <input type="text" id="route" value="Otic route" required>
+        <br>
+
+        <label>單位劑量：</label>
+        <input type="number" id="doseAndRate" required>
+        <br>
+
+        <label>總劑量：</label>
+        <input type="number" id="rateRange" required>
+        <br>
+       
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+
+</body>
+
+</html>

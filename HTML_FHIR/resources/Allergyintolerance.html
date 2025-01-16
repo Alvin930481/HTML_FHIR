@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_AllergyIntolerance.js"></script>
+    <script src="/JS/AllergyIntolerance.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增就醫事件</h2>
+    <br>
+
+    <form action="#">
+        <label>生效狀態：</label>
+        <select id="clinicalStatus">
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+            <option value="Resolved">Resolved</option>
+        </select>
+        <br>
+
+        <label>驗證狀態：</label>
+        <select id="verificationStatus">
+            <option value="unconfirmed">Unconfirmed</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="refuted">Refuted</option>
+            <option value="entered-in-error">Entered in Error</option>
+        </select>
+        <br>
+
+        <a href="http://hl7.org/fhir/R4/valueset-allergyintolerance-code.html">過敏原代碼參考</a>
+        <label>過敏源代碼：</label>
+        <input type="text" id="coding" value="102002" required>
+        <br><a href="http://hl7.org/fhir/R4/valueset-allergyintolerance-code.html">過敏原代碼參考</a>
+        <label>過敏源：</label>
+        <input type="text" id="code" value="Hemoglobin Okaloosa" required>
+        <br>
+
+        <label>病人：</label>
+        <input type="text" id="patient" value="Patient/13384" required>
+        <br>
+
+        <label>記錄日期：</label>
+        <input type="date" id="recordedDate" required>
+        <br>
+
+        <label>記錄人：</label>
+        <input type="text" id="recorder" value="Practitioner/13385" required>
+        <br>
+
+        <label>備註：</label>
+        <textarea id="note"></textarea>
+        <br>
+
+        <a href="http://snomed.info/sct">過敏反應代碼參考</a><br>
+        <label>過敏反應代碼：</label>
+        <input type="text" id="reactionCode" value="122003" required>
+        <br>
+        <a href="http://snomed.info/sct">過敏反應參考</a><br>
+        <label>過敏反應：</label>
+        <input type="text" id="reaction" value="Choroidal hemorrhage" required>
+        <br>
+
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+
+</body>
+
+</html>

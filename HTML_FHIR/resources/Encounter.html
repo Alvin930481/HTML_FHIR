@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ALVIN Core FHIR Oriented System</title>
+    <script src="/FHIR_module/0810_Encounter.js"></script>
+    <script src="/JS/Encounter.js"></script>
+</head>
+
+<body>
+    <h1>資料登入系統</h1>
+    <h2>新增就醫事件</h2>
+    <br>
+
+    <form action="#">
+        <label>識別碼：</label>
+        <input type="text" id="identifier" required>
+        <br>
+
+        <label>狀態：</label>
+        <select  id="status">
+            <option value="planned">planned</option>
+            <option value="arrived">arrived</option>
+            <option value="triaged">triaged</option>
+            <option value="in-progress">in-progress</option>
+            <option value="onleave">onleave</option>
+            <option value="finished">finished</option>
+            <option value="cancelled">cancelled</option>
+        </select>
+        <br>
+
+        <label>就醫分類</label>
+        <select id="class">
+            <option value="AMB">ambulatory</option>
+            <option value="EMER">emergency</option>
+            <option value="FLD">field</option>
+            <option value="HH">home health</option>
+            <option value="IMP">npatient encounter</option>
+            <option value="ACUTE">inpatient acute</option>
+            <option value="NONAC">npatient non-acute</option>
+            <option value="OBSENC">observation encounter</option>
+            <option value="PRENC">pre-admission</option>
+            <option value="SS">short stay</option>
+            <option value="VR">virtual</option>
+        </select>
+        <br>
+
+        <label>就醫科別</label>
+        <select id="serviceType">
+            <option value="00">不分科</option>
+            <option value="2A">結核科</option>
+            <option value="60">中醫科</option>
+            <option value="AC">胸腔內科</option>
+            <option value="AJ">胸腔暨重症加護</option>
+            <option value="EA">居家照護</option>
+            <option value="FA">放射診斷科</option>
+            <option value="HA">脊椎骨科</option>
+            <option value="TB">肺結核</option>
+        </select>
+        <br>
+
+        <label>病人：</label>
+        <input type="text" id="subject" value="Patient/13384" required>
+        <br>
+
+        <label>醫事人員</label>
+        <input type="text" id="individual" value="Practitioner/13385" required>
+        <br>
+
+        <label>就醫時間：</label>
+        <input type="date" id="period" required>
+        <br>
+        <a href="http://snomed.info/sct">就醫原因代碼參照</a><br>
+        <label>就醫原因代碼：</label>
+        <input type="text" id="reasonCode" value="168000" required>
+        <br>
+        <a href="http://snomed.info/sct">就醫原因參照</a><br>
+        <label>就醫原因：</label>
+        <input type="text" id="reasonDisplay" value="Typhlolithiasis" required>
+        <br>
+
+        <label>住院（非必填）：</label>
+        <input type="text" id="stay" required>
+        <br>
+
+        <label>出院處置（非必填）：</label>
+        <select id="hospitalization">
+            <option value="home">Home</option>
+            <option value="alt-home">Alternative home</option>
+            <option value="other-hcf">Other healthcare facility</option>
+            <option value="hosp">Hospice</option>
+            <option value="long">Long-term care</option>
+            <option value="aadvice">Left against advice</option>
+            <option value="exp">Expired</option>
+            <option value="psy">Psychiatric hospital</option>
+            <option value="rehab">	Rehabilitation</option>
+            <option value="snf">Skilled nursing facility</option>
+            <option value="oth">Other</option>
+        </select>
+        <br>
+
+        <label>就醫地點：</label>
+        <input type="text" id="location" value="Location/13386" required>
+        <br>
+
+        <label>就醫機構：</label>
+        <input type="text" id="serviceProvider" value="Organization/13381" required>
+        <br><br>
+        <input type="button" onclick="getData()" value="送出資料">
+
+    </form>
+    <hr>
+    <h3>回傳資料如下：</h3>
+    <p id="responseText"></p>
+    <br><br>
+    <a href="/index.html">回首頁</a>
+</body>
+
+</html>
